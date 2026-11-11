@@ -1,0 +1,71 @@
+@import "leaflet/dist/leaflet.css";
+@import "@fontsource-variable/bricolage-grotesque";
+@import "@fontsource-variable/figtree";
+@import "tailwindcss";
+
+@theme {
+  --font-display:
+    "Bricolage Grotesque Variable", ui-sans-serif, system-ui, sans-serif;
+  --font-sans: "Figtree Variable", ui-sans-serif, system-ui, sans-serif;
+
+  /* Glacier and ink: cool neutrals with one blue accent. Amber is reserved for ratings. */
+  --color-ink: #0e2a3b;
+  --color-muted: #52687a;
+  --color-fog: #f2f6f8;
+  --color-line: #d5e0e7;
+  --color-fjord-50: #eaf3f7;
+  --color-fjord-100: #cfe3ec;
+  --color-fjord-300: #8cc0d6;
+  --color-fjord-500: #2b83a8;
+  --color-fjord-600: #1f6a8a;
+  --color-fjord-700: #17536e;
+  --color-fjord-900: #0b2433;
+  --color-amber: #e0912a;
+  --color-danger: #b42318;
+  --color-danger-50: #fdeceb;
+  --color-success: #17663f;
+  --color-success-50: #e6f4ec;
+}
+
+@layer base {
+  html {
+    color-scheme: light;
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply bg-fog text-ink font-sans antialiased;
+  }
+  h1,
+  h2,
+  h3 {
+    @apply font-display tracking-tight;
+  }
+  :focus-visible {
+    @apply outline-2 outline-offset-2 outline-fjord-600;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+}
+@utility container-page {
+  margin-inline: auto;
+  width: 100%;
+  max-width: 80rem;
+  padding-inline: 1rem;
+
+  @media (min-width: 40rem) {
+    padding-inline: 1.5rem;
+  }
+
+  @media (min-width: 64rem) {
+    padding-inline: 2rem;
+  }
+}
